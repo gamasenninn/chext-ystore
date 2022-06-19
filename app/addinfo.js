@@ -1,6 +1,6 @@
 alert('アラートのテストです。');
 console.log('アラートのテストです。');
-$(window).on('load',function(){
+$(function(){
     //$('li').filter('.sc-jWBwVP').each(function(i,v){
     $('a').each(function(i,v){
         //$(this).text("test"+v.innerText+i);
@@ -8,7 +8,8 @@ $(window).on('load',function(){
         //scode = $(this).find('p').text();
         //$(this).append("<li>"+"test"+scode+"</li>");
         addhtml = "<h2>ワシだ!!</h2>"
-        $(this).parent().prepend(addhtml);
+        $(this).append(addhtml);
+        //$(this).parent().prepend(addhtml);
         console.log(i)
     });
 });
