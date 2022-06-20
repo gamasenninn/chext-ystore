@@ -20,14 +20,16 @@ $(function () {
 
     $('#cusBtnList').click(function () {
 
-        $('ul').filter('.sc-cJSrbW').each(function (i, el_ul) {
+        var data_l = [];
+
+        $('ul').filter('.sc-cJSrbW').each(async function (i, el_ul) {
             //$(el_ul).children('li').each(function(j,el_li){
             //    console.log(j,$(el_li).text());
             //});
             lis = $(el_ul).find('li');
             var scode_0 = $(lis).eq(1).find('.sc-iELTvK').text();
             var scode = scode_0.replace('管理番号', '').trim();
-            console.log(scode_0);
+            //console.log(scode_0);
             console.log(scode);
             if (i == 0) {
                 addImage = "<li></li>";
@@ -35,13 +37,45 @@ $(function () {
                 addWatch = "ウォッチ"
             }
             else {
-                addImage = "<li><img src='https://hikousen-rs.com/scode/" + scode + ".jpg' width=130>" 
+                addImage = "<li><img src='https://hikousen-rs.com/scode/" + scode + ".jpg' width=130>"
                 //    +"<br/><a href='https://hikousen-rs.com/scode/anl_" + scode + ".png' width=150>アクセス詳細</a></li>";
                 addWatch = "<br/>(A:700)<br/>(W:20)<br/>(Z:200)"
             }
             //$(lis).eq(1).find('a').append(addhtml);
+            //$(lis).eq(7).empty();
+            //$(lis).eq(7).html(addImage);
+            //if($(lis).eq(7)){
+            //    $(lis).eq(7).html(addImage);
+            //}else{
+            //    $(el_ul).append(addImage);
+            //}
+            $(lis).eq(7).remove();
             $(el_ul).append(addImage);
-            $(lis).eq(3).find('div').html(addWatch);
+            //$(lis).eq(3).find('div').html(addWatch);
+            //csvUrl = "https://hikousen-rs.com/scodeinf.php?scode=" + scode ;
+            if (i != 0){
+                /*
+                fetch('https://hikousen-rs.com/scodeinf.php?scode='+scode)
+                //await fetch(csvUrl)
+                .then(function (res) {
+                    return res.json(); 
+                })
+                .then(function (data) {
+                    addWatch = `<br/>${data.scode}<br/>(A:${data.lastPv})<br/>(W:${data.watch})<br/>(Z:${data.totalWatch})`;
+                    //$(lis).eq(3).find('div').html(addWatch);
+                    console.log(addWatch); 
+                })
+                */
+                const response = await fetch('https://hikousen-rs.com/scodeinf.php?scode='+scode);
+                const data = await response.json();   
+                console.log(data); 
+                addWatch = `<br/>${data.scode}<br/>(A:${data.lastPv})<br/>(W:${data.watch})<br/>(Z:${data.totalWatch})`;
+                console.log(addWatch); 
+                //data_l.push(addWatch);
+                //lis = $(el_ul).find('li');
+                $(el_ul).find('li').eq(3).find('div').html(addWatch); //読み直さないと値が設定できないみたい。
+            }
+            
         });
 
     });
