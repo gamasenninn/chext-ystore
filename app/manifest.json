@@ -3,7 +3,8 @@
     "version": "1.0.4",
     "manifest_version": 3,
     "host_permissions": [
-      "https://hikousen-rs.com/*"
+      "https://hikousen-rs.com/*",
+      "https://page.auctions.yahoo.co.jp/*"
     ],
     "description": "test Chrome Extension",
     "content_scripts": [{
