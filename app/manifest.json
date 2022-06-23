@@ -10,7 +10,7 @@
     "content_scripts": [{
       "matches": ["https://auctions.store.yahoo.co.jp/serinavi/closed-list*"],
       "js": [
-        "jquery.min.js","addinfo.js"
+        "jquery.min.js","config.js","addinfo.js"
       ]
     }]
   }
