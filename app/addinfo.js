@@ -1,7 +1,8 @@
 $(function () {
     addbutton = '<button id="cusBtnList" type="button" class="sc-VigVT zMuoF">詳細表示</button>'
     $('.sc-kGXeez').eq(2).append(addbutton);
-
+    console.log(location.pathname);
+    
     $('#cusBtnList').click(function () {
 
         var data_l = [];
