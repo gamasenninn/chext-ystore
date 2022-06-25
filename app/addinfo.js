@@ -4,9 +4,6 @@ $(function () {
     console.log(location.pathname);
     
     $('#cusBtnList').click(function () {
-
-        var data_l = [];
-
         $('ul').filter('.sc-cJSrbW').each(async function (i, elUl) {
             let scode = $(elUl).find('li').eq(1).find('.sc-iELTvK').text().replace('管理番号', '').trim();
             let aucId = $(elUl).find('li').eq(1).find('.sc-feJyhm').text().replace('オークションID', '').trim();
@@ -22,7 +19,7 @@ $(function () {
                 const response = await fetch(`${conf.codeInfoApiUrl}?scode=${scode}`);
                 const data = await response.json();   
                 //console.log(data,addWatch,addPv); 
-                $(elUl).find('li').eq(3).find('div').html(`${data.watch}`); //読み直さないと値が設定できないみたい。
+                $(elUl).find('li').eq(3).find('div').html(`${data.watch}`);
                 $(elUl).find('li').eq(4).find('div').html(`${data.lastPv}<br/>(T:${data.totalPv})`); 
             }else{
                 $(elUl).append("<li></li>");
@@ -30,5 +27,4 @@ $(function () {
             }         
         });
     });
-
 });
