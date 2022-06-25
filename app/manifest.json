@@ -1,6 +1,6 @@
 {
     "name": "YstorePro extention",
-    "version": "1.0.5",
+    "version": "1.0.7",
     "manifest_version": 3,
     "host_permissions": [
       "https://hikousen-rs.com/*"
@@ -9,8 +9,7 @@
     "content_scripts": [{
       "matches": 
           [
-            "https://auctions.store.yahoo.co.jp/serinavi/closed-list*",
-            "https://auctions.store.yahoo.co.jp/serinavi/sold-list*"
+            "https://auctions.store.yahoo.co.jp/*"
           ],
       "js": [
         "jquery.min.js","config.js","addinfo.js"
