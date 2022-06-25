@@ -1,11 +1,11 @@
 {
-    "name": "Yahoo store creator pro. extention",
+    "name": "YstorePro extention",
     "version": "1.0.5",
     "manifest_version": 3,
     "host_permissions": [
       "https://hikousen-rs.com/*"
     ],
-    "description": "test Chrome Extension",
+    "description": "Yahoo store creator pro. extention.",
     "content_scripts": [{
       "matches": 
           [
