@@ -1,7 +1,7 @@
 $(function () {
     if (location.pathname == '/snavi/sellings'){
-        addbutton = '<button id="cusBtnListSellings" type="button" class="sc-VigVT zMuoF" style="margin:5px">詳細表示</button>'
-        $('.PageIndicator').prepend(addbutton);    
+        addbutton = '<button id="cusBtnListSellings" type="button" class="sc-VigVT zMuoF" style="margin-top:10px">詳細表示</button>'
+        $('.TableController').append(addbutton);    
     }else{
         addbutton = '<button id="cusBtnList" type="button" class="sc-VigVT zMuoF">詳細表示</button>'
         $('.sc-kGXeez').eq(2).append(addbutton);    
